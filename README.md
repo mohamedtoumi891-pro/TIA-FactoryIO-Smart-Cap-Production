@@ -8,7 +8,7 @@ This project implements a fully functioning production line simulation using **F
 
 The layout consists of a synchronized flow managed by a **SIMATIC S7-1500 PLC**. It integrates robotic pick-and-place units with CNC machining centers.
 
-![Factory I/O Production Line](tia%20portail%20img.jpg)
+![Factory I/O Production Line](tia%20portail%20img.png)
 *Figure 1: Overview of the Smart Cap Production Floor in Factory I/O*
 
 ### Process Flow:
@@ -25,7 +25,7 @@ The HMI was developed in TIA Portal to provide real-time supervisory control and
 
 | HMI Control Panel View | Functional Description & Control |
 | :--- | :--- |
-| ![HMI Interface](HMI%20interface.jpg) | **Control Commands:** <br> - **Start/Reset**: Master control for the PLC sequence. <br> - **Stop Feeding**: Halts new material while clearing the line. <br> - **Setpoint (V)**: Analog adjustment for conveyor speed. <br><br> **Live Statistics:** <br> - **Counter**: Total throughput of the plant. <br> - **Color Sort**: Specific tracking for Green vs. Blue products. <br> - **Safety**: Integrated Emergency Stop monitoring. |
+| ![HMI Interface](HMI%20interface.png) | **Control Commands:** <br> - **Start/Reset**: Master control for the PLC sequence. <br> - **Stop Feeding**: Halts new material while clearing the line. <br> - **Setpoint (V)**: Analog adjustment for conveyor speed. <br><br> **Live Statistics:** <br> - **Counter**: Total throughput of the plant. <br> - **Color Sort**: Specific tracking for Green vs. Blue products. <br> - **Safety**: Integrated Emergency Stop monitoring. |
 
 ---
 
@@ -35,9 +35,3 @@ To ensure industrial-grade reliability, the system includes:
 * **Sequence Monitoring**: Detects if a part is stuck between stations.
 * **Hardware Interlocks**: The HMI displays field-related alarms for any component failure.
 * **Emergency Protocols**: Immediate halting of all actuators upon E-Stop activation.
-
-## 4. Setup Instructions
-
-1. **Factory I/O**: Open the provided `.factoryio` scene file.
-2. **TIA Portal**: Open the `.ap17` project and download the hardware configuration to **PLCSIM**.
-3. **Operation**: Switch the PLC to 'RUN' mode and use the HMI Start button to begin.
