@@ -1,47 +1,43 @@
-<img width="787" height="880" alt="HMI interface" src="https://github.com/user-attachments/assets/e5d14875-ccf1-4541-ac9d-59f1b5882977" />
-<img width="1917" height="907" alt="tia portail img" src="https://github.com/user-attachments/assets/5da94904-bad6-48c5-af9e-330812b1cdb1" />
-# TIA Portal & Factory I/O: Integrated Assembly & Machining Line
+# TIA-FactoryIO-Smart-Cap-Production
 
-This project features a sophisticated industrial automation system developed using **Siemens TIA Portal V17** and **Factory I/O**. It simulates a high-precision manufacturing environment where raw materials are machined into components, assembled, and sorted based on real-time production requirements.
+This project implements a fully functioning production line simulation using **Factory I/O** and **Siemens TIA Portal V17**. The system automates the manufacturing of "Smart Bottle Caps," covering the entire lifecycle from raw material feeding to machining, assembly, and color-coded sorting.
 
-## 1. System Architecture & Layout
+---
 
-The production floor is divided into four main zones: Feeding, Machining, Assembly, and Sorting. The logic is driven by a **SIMATIC S7-1500 PLC**, ensuring high-speed synchronization between the conveyors and the robotic cells.
+## 1. Production Line Design & Simulation
 
-![Factory I/O Production Line](https://raw.githubusercontent.com/placeholder-link-to-your-factoryio-img.jpg)
-*Figure 1: Full Factory I/O 3D Simulation Environment*
+The layout consists of a synchronized flow managed by a **SIMATIC S7-1500 PLC**. It integrates robotic pick-and-place units with CNC machining centers.
 
-### Process Workflow:
-* **Feeding Unit**: A Pick & Place robot identifies raw material colors (Green/Blue) and feeds the primary conveyor.
-* **Machining Center**: Two CNC stations transform raw blocks into "Lids" (6s process) and "Bases" (3s process).
-* **Assembly Station**: A dedicated robotic arm performs the final "press-fit" assembly of the lid onto the base.
-* **Sorting & Logistics**: Finished products are identified by color and diverted to their respective storage ramps.
+![Factory I/O Production Line](tia%20portail%20img.jpg)
+*Figure 1: Overview of the Smart Cap Production Floor in Factory I/O*
+
+### Process Flow:
+* **Feeding**: Random raw materials (Green/Blue) are placed onto the line.
+* **Machining**: CNC stations fabricate **Bases** (3s) and **Lids** (6s).
+* **Assembly**: Components are pressed together to form the final product.
+* **Sorting**: Finished caps are sorted by color into designated storage ramps.
 
 ---
 
 ## 2. Human-Machine Interface (HMI)
 
-The HMI serves as the central "brain" for the operator. It allows for manual overrides, production target setting, and real-time data visualization.
+The HMI was developed in TIA Portal to provide real-time supervisory control and data acquisition (SCADA) for the operator.
 
-| HMI Control Panel | Functional Explanation |
+| HMI Control Panel View | Functional Description & Control |
 | :--- | :--- |
-| ![HMI Interface](https://raw.githubusercontent.com/placeholder-link-to-your-hmi-img.jpg) | **Production Control:** <br> - **Start/Reset:** Initiates or clears the PLC sequence. <br> - **Stop Feeding:** Ceases raw material input while allowing current work-in-progress to finish. <br> - **Setpoint (V):** A potentiometer to adjust conveyor speeds or production rates. <br><br> **Data Monitoring:** <br> - **Counter:** Displays total units processed. <br> - **Product Tracking:** Individual counters for **Green** and **Blue** finished goods. <br> - **Safety:** Prominent Emergency Stop for immediate hardware interlocking. |
+| ![HMI Interface](HMI%20interface.jpg) | **Control Commands:** <br> - **Start/Reset**: Master control for the PLC sequence. <br> - **Stop Feeding**: Halts new material while clearing the line. <br> - **Setpoint (V)**: Analog adjustment for conveyor speed. <br><br> **Live Statistics:** <br> - **Counter**: Total throughput of the plant. <br> - **Color Sort**: Specific tracking for Green vs. Blue products. <br> - **Safety**: Integrated Emergency Stop monitoring. |
 
 ---
 
-## 3. Automation Logic & Safety
+## 3. Fault Detection & Alarms
 
-### Fault Detection (Alarms)
-The system is programmed with **Field-Related Alarms**. If a sensor fails to detect a part within a specific timeframe (Sequence Fault) or if a conveyor motor draws excessive current (Hardware Fault), the HMI triggers a diagnostic message and halts the affected zone.
+To ensure industrial-grade reliability, the system includes:
+* **Sequence Monitoring**: Detects if a part is stuck between stations.
+* **Hardware Interlocks**: The HMI displays field-related alarms for any component failure.
+* **Emergency Protocols**: Immediate halting of all actuators upon E-Stop activation.
 
-### Technical Deliverables
-1.  **PLC Logic**: Developed in LAD/SCL within TIA Portal.
-2.  **HMI Design**: Multi-screen interface for monitoring and diagnostics.
-3.  **Digital Twin**: Factory I/O scene configured for SIL (Software-in-the-Loop) testing.
-4.  **Performance Report**: Analysis of cycle times (3s base vs 6s lid) and throughput optimization.
+## 4. Setup Instructions
 
-## 4. How to Run
-1.  Open the `.factoryio` scene.
-2.  Launch **TIA Portal V17** and open the `.ap17` project.
-3.  Establish a connection via **PLCSIM**.
-4.  Switch to the HMI view and press **Start** to begin the automated cycle.
+1. **Factory I/O**: Open the provided `.factoryio` scene file.
+2. **TIA Portal**: Open the `.ap17` project and download the hardware configuration to **PLCSIM**.
+3. **Operation**: Switch the PLC to 'RUN' mode and use the HMI Start button to begin.
