@@ -1,3 +1,5 @@
+<img width="787" height="880" alt="HMI interface" src="https://github.com/user-attachments/assets/e5d14875-ccf1-4541-ac9d-59f1b5882977" />
+<img width="1917" height="907" alt="tia portail img" src="https://github.com/user-attachments/assets/5da94904-bad6-48c5-af9e-330812b1cdb1" />
 # TIA Portal & Factory I/O: Integrated Assembly & Machining Line
 
 This project features a sophisticated industrial automation system developed using **Siemens TIA Portal V17** and **Factory I/O**. It simulates a high-precision manufacturing environment where raw materials are machined into components, assembled, and sorted based on real-time production requirements.
