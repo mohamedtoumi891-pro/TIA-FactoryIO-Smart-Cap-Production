@@ -35,3 +35,19 @@ To ensure industrial-grade reliability, the system includes:
 * **Sequence Monitoring**: Detects if a part is stuck between stations.
 * **Hardware Interlocks**: The HMI displays field-related alarms for any component failure.
 * **Emergency Protocols**: Immediate halting of all actuators upon E-Stop activation.
+
+---
+
+## 4. Project Directory Structure
+
+The repository is organized to clearly separate the simulation environment from the automation logic:
+
+```text
+TIA-FACTORY-IO/
+├── PLC-HMI-Code/             # Siemens TIA Portal Project Folder
+│   ├── ff.ap17               # Main TIA Portal Project File (V17)
+│   ├── System/               # PLC System Configuration
+│   └── [Internal Folders]    # IM, Logs, XRef, AdditionalFiles
+├── Production-Line-Scene     # Factory I/O Scene File
+├── HMI interface.png         # HMI Screenshot for documentation
+└── tia portail img.png       # Factory I/O Screenshot for documentation
